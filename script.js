@@ -10,7 +10,7 @@ const iniciarOuPausarBt = document.querySelector('#start-pause span')
 const pauseOuPlay = document.querySelector('.app__card-primary-butto-icon')
 const timer = document.getElementById('timer')
 const mscInput = document.getElementById('alternar-musica')
-const msc = new Audio('/sons/luna-rise-part-one.mp3') 
+const msc = new Audio('/sons/luna-rise-part-one.mp3')
 const audioPlay = new Audio('/sons/play.wav');
 const audioPausa = new Audio('/sons/pause.mp3');
 const audioTempoFinalizado = new Audio('./sons/beep.mp3')
@@ -20,8 +20,8 @@ let intervaloId = null
 msc.loop = true
 
 
-mscInput.addEventListener('change', () => {
-    if(msc.paused) {
+mscInput.addEventListener('change', () => { //código usa um ouvinte de evento (addEventListener) para monitorar o evento de mudança (change) no elemento referenciado por mscInput
+    if (msc.paused) {
         msc.play()
     } else {
         msc.pause()
@@ -78,7 +78,7 @@ function alterarContexto(contexto) {
 }
 
 const contagemRegressiva = () => {
-    if (tempoDecorridoEmSegundos <= 0){
+    if (tempoDecorridoEmSegundos <= 0) {
         audioTempoFinalizado.play()
         zerar()
         return
@@ -90,7 +90,7 @@ const contagemRegressiva = () => {
 btnComecar.addEventListener('click', iniciarOuPausar)
 
 function iniciarOuPausar() {
-    if(intervaloId) {
+    if (intervaloId) {
         audioPausa.play()
         zerar()
         return
@@ -108,9 +108,9 @@ function zerar() {
     intervaloId = null
 }
 
-function mostrarTempo () {
+function mostrarTempo() {
     const tempo = new Date(tempoDecorridoEmSegundos * 1000)
-    const tempoFormatado = tempo.toLocaleTimeString('pt-Br', {minute: '2-digit', second: '2-digit'})
+    const tempoFormatado = tempo.toLocaleTimeString('pt-Br', { minute: '2-digit', second: '2-digit' })
     timer.innerHTML = `${tempoFormatado}`
 }
 

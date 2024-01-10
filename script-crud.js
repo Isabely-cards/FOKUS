@@ -121,7 +121,7 @@ document.addEventListener('FocoFinalizado', () => {
     }
 })
 
-btnRemoverConcluida.onclick = () => {
+const RemoverConcluida = () => {
     const seletor = '.app__section-task-list-item-complete'
     document.querySelectorAll(seletor).forEach(elemento => {
         elemento.remove()
@@ -129,3 +129,5 @@ btnRemoverConcluida.onclick = () => {
     tarefas = tarefas.filter(tarefa => !tarefa.completa)
     atualizarTarefas()
 }
+
+btnRemoverConcluida.onclick = RemoverConcluida
